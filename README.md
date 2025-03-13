@@ -1,6 +1,6 @@
 # dsa-codes
 
-Target: 289 problems by 8 may, 3 problems daily [3hrs]
+Target: 289 problems by 16 may, 3 problems daily [3hrs]
 ---
 
 Day 1: 1march: 5 problem
