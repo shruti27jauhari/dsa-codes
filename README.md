@@ -1,6 +1,6 @@
 # dsa-codes
 
-Target: 289 problems by 16 may, 3 problems daily [3hrs]
+Target: 289 problems by 16 june, 3 problems daily [3hrs]
 ---
 
 Day 1: 1march: 5 problem
@@ -24,6 +24,26 @@ Day 3: 3 march : 3 problems
 10-longest-subarray-with-sum-k-positive-only  
 11-check-if-array-is-sorted-and-rotated  
 
+day 4:
+12_move_zero_in_last_place
+13_two_sum
+14_maximum_subarray_sum
 
+day  5:
+15_stock_buy_and_sell
+16_subarraySum_k
+17_Rearrange_Array_Elements_by_Sign
 
+day 6:
+18_Majority_Element_(nby2)
+19_Longest Consecutive Sequence
+20_set_zero_matrix
+
+day7:
+21_sort color_0,1,2
+22_Spiral Matrix
+
+day 8:
+23_pascal_triangle
+24_majority_element2
 
