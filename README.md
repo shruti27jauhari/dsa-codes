@@ -47,3 +47,6 @@ day 8:
 23_pascal_triangle
 24_majority_element2
 
+day 9(19/4/25):
+25_3sum
+26_4sum
