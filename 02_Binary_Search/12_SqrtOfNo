@@ -1,0 +1,7 @@
+class Solution {
+public:
+    long long floorSqrt(long long n)  {
+      int ans= sqrt(n);
+      return ans;
+    }
+};
