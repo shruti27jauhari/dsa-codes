@@ -1,0 +1,27 @@
+class Solution {
+public:
+    vector<int> findPeakGrid(vector<vector<int>>& mat) {
+    int low = 0, high = mat[0].size() - 1;
+
+    while (low <= high) {
+        int m = 0, n = low + (high - low) / 2;
+
+        for (int i = 0; i < mat.size(); i++) {
+            m = mat[i][n] >= mat[m][n] ? i : m;
+        }
+
+        bool left = n - 1 >= low && mat[m][n - 1] > mat[m][n];
+        bool right = n + 1 <= high && mat[m][n + 1] > mat[m][n];
+
+        if (!left && !right)
+            return vector<int>{m, n};
+        else if (right)
+            low = n + 1;
+        else
+            high = n - 1;
+    }
+
+    return vector<int>{-1, -1};
+}
+
+};
