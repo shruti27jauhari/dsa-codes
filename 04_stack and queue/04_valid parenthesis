@@ -3,15 +3,15 @@ public:
     bool isValid(string s) {
         stack<char> stack;
         for(char c : s){
-            if(s.size()==0) return false;
             if(c=='(' || c=='[' || c=='{') stack.push(c);
             else{
-                int tp=stack.top();
+                if(stack.empty()) return false;
+                char tp=stack.top();
                 stack.pop();
                 if((c==')' && tp=='(') || (c==']' && tp=='[') || (c=='}' && tp=='{') ) continue;
                 else return false;
                             }
         }
-        return true;
+         return stack.empty();
     }
 };
