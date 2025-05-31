@@ -1,0 +1,68 @@
+#include <iostream>
+#include <bits/stdc++.h>
+
+using namespace std;
+
+class Node{
+    public:
+    int data;
+    Node* next;
+    Node* back;
+
+    Node(int data1,Node* next1,Node* back1){
+        this->data= data1;
+        this->next= next1;
+        this->back= back1;
+    }
+        Node(int data1){
+        this->data= data1;
+        this->next= nullptr;
+        this->back= nullptr;
+    }
+
+};
+void print(Node* head) {
+    while (head != nullptr) {
+        cout << head->data << " ";
+        head = head->next;
+    }
+}
+
+Node* DLL(vector<int> a){
+int n=a.size();
+Node* head=new Node(a[0]);
+Node* prev=head;
+for(int i=1;i<n;i++){
+    Node* temp= new Node(a[i],nullptr,prev);
+    prev->next=temp;
+    prev=temp;
+}
+return head;
+}
+
+Node* insertAtEnd(Node* head, int k){
+    Node* newnode=new Node(k);
+    
+    Node* temp=head;
+while(temp->next!=nullptr){
+    temp=temp->next;
+}
+
+newnode->back=temp;
+temp->next=newnode;
+
+return head;
+}
+
+
+int main() {
+    vector<int> arr = {12, 5, 8, 7, 4};
+    Node* head = DLL(arr);
+    cout << "Doubly Linked List Initially: " << endl;
+    print(head);
+    cout << endl << "Doubly Linked List After Inserting at the tail with value 10: " << endl;
+    head = insertAtEnd(head, 10);
+    print(head);
+
+    return 0;
+}
