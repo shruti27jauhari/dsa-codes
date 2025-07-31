@@ -1,6 +1,6 @@
 # sa-codes
 
-**Target:** 289 problems by June 16, with a daily goal of 3 problems (3 hours).
+**Target:** 289 problems by 5 oct, with a daily goal of 3 problems (3 hours).
 
 ---
 
