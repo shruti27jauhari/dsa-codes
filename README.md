@@ -164,3 +164,7 @@
 * 23-reverse-in-group-of-k
 * 01-Selection-Sort
 * 02-Bubble-Sort
+* 03-Insertion_Sort
+* 04-Recurrsion_Insertion_sort
+* 05-recursion_Bubble_sort
+* 06-Quick-Sort
