@@ -1,0 +1,73 @@
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ * int val;
+ * ListNode *next;
+ * ListNode() : val(0), next(nullptr) {}
+ * ListNode(int x) : val(x), next(nullptr) {}
+ * ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution {
+public:
+    pair<ListNode*, ListNode*> reverseLinkedList(ListNode* head, int k) {
+        ListNode* prev = nullptr;
+        ListNode* curr = head;
+        ListNode* original_head = head; 
+
+        for (int i = 0; i < k && curr != nullptr; ++i) {
+            ListNode* next_node = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = next_node;
+        }
+        return {prev, original_head};
+    }
+
+    ListNode* getKthNode(ListNode* node, int k) {
+        ListNode* curr = node;
+        for (int i = 0; i < k - 1 && curr != nullptr; ++i) {
+            curr = curr->next;
+        }
+        return curr;
+    }
+
+    ListNode* reverseKGroup(ListNode* head, int k) {
+        if (head == nullptr || k == 1) {
+            return head;
+        }
+
+        ListNode* dummy = new ListNode(0);
+        dummy->next = head;
+        ListNode* prev_group_tail = dummy; 
+
+        ListNode* current = head;
+
+        while (current != nullptr) {
+            ListNode* end_of_group = getKthNode(current, k);
+
+            if (end_of_group == nullptr) {
+                break;
+            }
+
+            ListNode* next_group_head = end_of_group->next;
+
+            end_of_group->next = nullptr;
+
+            pair<ListNode*, ListNode*> reversed_segment = reverseLinkedList(current, k);
+            ListNode* new_head = reversed_segment.first;
+            ListNode* new_tail = reversed_segment.second;
+
+            prev_group_tail->next = new_head;
+
+            new_tail->next = next_group_head;
+
+            prev_group_tail = new_tail;
+            current = next_group_head;
+        }
+
+        ListNode* result = dummy->next;
+        delete dummy;
+        return result;
+    }
+};
