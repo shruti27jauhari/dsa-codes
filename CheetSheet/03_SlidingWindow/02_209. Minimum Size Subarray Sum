@@ -1,0 +1,17 @@
+class Solution {
+public:
+    int minSubArrayLen(int target, vector<int>& nums) {
+        int i=0,j=0,sumofwindow=0;
+        int minocc=INT_MAX;
+        for(j=0;j<nums.size();j++){
+            sumofwindow+=nums[j];
+            while(sumofwindow>=target){
+                    minocc=min(minocc,j-i+1);
+                    sumofwindow-=nums[i];
+                    i++;
+            }
+        }
+        return minocc==INT_MAX ? 0 : minocc;
+
+    }
+};
