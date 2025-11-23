@@ -1,0 +1,25 @@
+class Solution {
+public:
+    vector<string> commonChars(vector<string>& words) {
+        vector<int> minfre(26, INT_MAX);
+
+        for (auto& word : words) {
+            vector<int> fre(26, 0);
+            for (auto& ch : word) {
+                fre[ch - 'a']++;
+            }
+            for (int i = 0; i < 26; i++) {
+                minfre[i] = min(minfre[i], fre[i]);
+            }
+        }
+
+        vector<string> result;
+        for (int i = 0; i < 26; i++) {
+            while (minfre[i]-- > 0) {
+                result.push_back(string(1, i + 'a'));
+            }
+        }
+
+        return result;
+    }
+};
