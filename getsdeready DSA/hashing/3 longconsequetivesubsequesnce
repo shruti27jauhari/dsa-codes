@@ -1,0 +1,26 @@
+class Solution {
+public:
+    int longestConsecutive(vector<int>& nums) {
+        unordered_set<int> hashse;
+        for(int s: nums){
+            hashse.insert(s);
+        }
+
+        int longcon=0;
+        for(int num : hashse){
+            if(hashse.find(num-1) == hashse.end()){
+                int c=1;
+                int cu=num;
+                while(hashse.find(cu+1)!=hashse.end()){
+                    c++;
+                    cu++;
+                }
+               longcon=max(longcon,c);
+            }
+        }
+        return longcon;
+
+
+
+    }
+};
