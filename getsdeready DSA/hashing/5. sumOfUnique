@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int sumOfUnique(vector<int>& nums) {
+        unordered_map<int,int> diff;
+        for(int s: nums){
+            diff[s]++;
+        }
+        
+        int sum=0;
+        for(auto& j:diff){
+            if(j.second==1)sum+=j.first;
+        }
+        return sum;
+    }
+};
