@@ -1,0 +1,22 @@
+class Solution {
+public:
+    bool isValid(int x) {
+        while (x > 0) {
+            int d = x % 10;
+            if (d != 1 && d != 2 && d != 3) return false;
+            x /= 10;
+        }
+        return true;
+    }
+
+    vector<int> filterByDigits(vector<int>& arr) {
+        vector<int> ans;
+
+        for (int x : arr) {
+            if (x > 0 && isValid(x)) {
+                ans.push_back(x);   // preserves input order
+            }
+        }
+        return ans;
+    }
+};
