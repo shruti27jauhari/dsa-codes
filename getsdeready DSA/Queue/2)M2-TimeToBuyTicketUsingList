@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int timeRequiredToBuy(vector<int>& tickets, int k) {
+        int count=0;
+        queue<int> queue;
+        for(int i=0;i<tickets.size();i++){
+            queue.push(i);
+        }
+
+        while(!queue.empty() && tickets[k]!=0){
+            int tpin=queue.front();
+            queue.pop();
+            count++;
+            tickets[tpin]--;
+            if(tickets[tpin]!=0){
+                queue.push(tpin);
+            }
+        }
+        return count;
+    }
+};
